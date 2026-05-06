@@ -1,0 +1,58 @@
+
+
+#contactForm {
+    width: 60%;
+    background-color: rgb(101, 102, 110);
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem;
+    text-decoration: aliceblue;
+    
+}
+#contactForm input{
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.293);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 300;
+    color: white;
+    border-color: beige;
+        border-radius: 10px;
+        border: 3px;
+        display: -ms-inline-grid;
+        
+}
+#contactForm button {
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.293);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 300;
+    padding: 1rem;
+    margin: 0.7rem;
+    
+}
+#contactForm :placeholder-shown{
+    color: rgb(6, 50, 181);
+}
+#contactForm button {
+    color: white;
+    border-color: beige;
+    border-radius: 10px;
+    border: 3px;
+    font-weight: 900;
+}
+#contactForm button:hover {
+    color: rgb(10, 143, 25);
+    border-color: rgb(237, 237, 18);
+    border-radius: 10px;
+    border: 5cap;
+}
+#contactForm .header{
+    color: white;
+}
+#message{
+    color: white;
+        
+        font-weight: 700;
+        display: none;
+        margin-top: 10px;
+}
