@@ -8,14 +8,23 @@ form.addEventListener('submit', function (event) {
     // 2. Clear any previous messages
     messageDiv.style.display = 'none';
     messageDiv.textContent = '';
+    error.textContent = ''
 
     // 3. Get input values
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
 
     // 4. Custom Validation (Basic check)
-    if (name === "" || email === "") {
+    if (name === "" || email === "" || password === "") {
         alert("Please fill in all fields."); // Standard alert for errors
+        return;
+    }
+    
+    // password rejex 
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+    if (!passwordRegex.test(password)) {
+        error.textContent = "Password must have uppercase, lowercase, number and 6+ characters!";
         return;
     }
 
