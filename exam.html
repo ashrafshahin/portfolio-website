@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <title>Portfolio, Bootstrap and JavaScript</title>
+    <style>
+        .inputError{
+            color: red;
+            display: none;
+        }
+        .successMsg{
+            color: green;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Container">
+        <div class="grid">
+            <form id="contactForm">  
+                <header class="header">Contact Form</header>
+
+                <input type="text" id="email" placeholder="email" name="email">
+                <p class="inputError" id="emailError"></p> <br>
+
+                <input type="text" id="password" placeholder="password" name="password">
+                <p class="inputError" id="passwordError"></p><br>
+
+                <button type="submit">Submit</button>
+                <p class="success" id="successMsg">Login successful...</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const contactForm = document.getElementById('contactForm')
+
+        const email = document.getElementById('email')
+        const emailError = document.getElementById('emailError')
+
+        const password = document.getElementById('password')
+        const passwordError = document.getElementById('passwordError')
+
+        const successMsg = document.getElementById('successMsg')
+
+        const data = contactForm.addEventListener('submit', (e)=>{
+            e.preventDefault()
+            const isValid = true;
+            successMsg.style.display = 'none';
+
+            // email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(email.value.trim() === ''){
+                emailError.innerText = 'empty email firld'
+                emailError.style.display = 'block'
+                isValid = false
+            }
+            else if(!emailRegex.test(email.value)){
+                emailError.innerText = 'email rejex hoi nai'
+                emailError.style.display = 'block'
+                isValid = false
+            }
+            else{
+                emailError.style.display = 'none'
+            }
+
+            // password validation
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{6,}$/;
+            if(password.value.trim() === ''){
+                passwordError.innerText = 'empty password'
+                passwordError.style.display = 'block'
+                isValid = false
+            }
+            else if(!passwordRegex.test(password.value)){
+                passwordError.innerText = 'bhai rejex kor'
+                passwordError.style.display = 'block'
+                isValid = false
+            }
+            else{
+                passwordError.style.display = 'none'
+            }
+
+            if(isValid){
+                successMsg.style.display = 'block'
+                contactForm.reset()
+            }
+
+        });
+    </script>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

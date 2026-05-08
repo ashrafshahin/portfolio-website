@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        .Container {
+            width: 300px;
+            margin: 50px auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+/* important */
+        .inputError {
+            color: red;
+            font-size: 14px;
+            display: none;
+            margin-top: -5px;
+        }
+
+        .success {
+            color: green;
+            display: none;
+        }
+        /* important */
+    </style>
+</head>
+
+<body>
+
+    <div class="Container">
+        <div>
+            <form id="contactForm">
+
+                <header class="header">Contact Form</header>
+
+                <!-- Email -->
+                <input type="email" placeholder="Email" name="email" id="email">
+                <p class="inputError" id="emailError"></p>
+
+                <!-- Password -->
+                <input type="password" placeholder="Password" name="password" id="password">
+                <p class="inputError" id="passwordError"></p>
+
+                <!-- submit button -->
+                <button type="submit">Submit</button>
+                <p class="success" id="successMsg">Login successful...</p>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        const form = document.getElementById("contactForm");
+
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+
+        const emailError = document.getElementById("emailError");
+        const passwordError = document.getElementById("passwordError");
+
+        const successMsg = document.getElementById("successMsg");
+
+        form.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            let isValid = true;
+
+            // Hide success message first
+            successMsg.style.display = "none";
+
+            // =========================
+            // EMAIL VALIDATION
+            // =========================
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email.value.trim() === "") {
+                emailError.innerText = "Email field is required";
+                emailError.style.display = "block";
+                isValid = false;
+            }
+            else if (!emailRegex.test(email.value)) {
+                emailError.innerText = "Enter a valid email";
+                emailError.style.display = "block";
+                isValid = false;
+            }
+            else {
+                emailError.style.display = "none";
+            }
+
+            // =========================
+            // PASSWORD VALIDATION
+            // =========================
+
+            // Minimum 6 chars, 1 uppercase, 1 number
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{6,}$/;
+
+            if (password.value.trim() === "") {
+                passwordError.innerText = "Password field is required";
+                passwordError.style.display = "block";
+                isValid = false;
+            }
+            else if (!passwordRegex.test(password.value)) {
+                passwordError.innerText =
+                    "Password must contain uppercase, number and 6+ characters";
+                passwordError.style.display = "block";
+                isValid = false;
+            }
+            else {
+                passwordError.style.display = "none";
+            }
+
+            // =========================
+            // SUCCESS
+            // =========================
+
+            if (isValid) {
+                successMsg.style.display = "block";
+
+                // Optional: reset form
+                form.reset();
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

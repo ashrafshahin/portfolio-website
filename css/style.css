@@ -49,10 +49,44 @@
 #contactForm .header{
     color: white;
 }
+#contactForm header {
+    margin: 2px;
+    font-size: 3rem;
+    color: white;
+}
 #message{
     color: white;
         
         font-weight: 700;
         display: none;
         margin-top: 10px;
+}
+
+.inputError{
+    margin: 10px;
+    color: red;
+    background-origin: padding-box;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.inputError {
+    color: red;
+    font-size: 14px;
+    display: none;
+    margin-top: -5px;
+}
+
+.success {
+    color: green;
+    display: none;
 }
