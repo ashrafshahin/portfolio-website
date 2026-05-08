@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <title>Portfolio, Bootstrap and JavaScript</title>
+    <style>
+        .clock-container {
+    text-align: center;
+    border: 2px solid #61dafb;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#time {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#date {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="Container">
+
+        <div class="map d-flex justify-between ">
+            <div class="contact m-5">
+                <h2>mobile- 018166333444</h2>
+                <address> mirpur dhaka</address></p>
+            </div>
+            <div class=""><iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5466494885964!2d-0.12209412350552938!3d51.50318637181233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2sLondon%20Eye!5e0!3m2!1sen!2sbd!4v1778279969321!5m2!1sen!2sbd"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+        </div>
+        <div class="clock-container">
+            <div id="time">00:00:00</div>
+            <div id="date">Loading date...</div>
+        </div>
+    </div>
+
+<script>
+    function updateClock() {
+            const now = new Date();
+
+            // Format time (e.g., 10:30:05 AM)
+            const timeString = now.toLocaleTimeString();
+
+            // Format date (e.g., May 9, 2026)
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString(undefined, dateOptions);
+
+            // Update the HTML content
+            document.getElementById('time').textContent = timeString;
+            document.getElementById('date').textContent = dateString;
+        }
+
+        // Call function immediately to avoid 1-second delay
+        updateClock();
+
+        // Refresh the clock every 1000ms (1 second)
+        setInterval(updateClock, 1000);
+
+</script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

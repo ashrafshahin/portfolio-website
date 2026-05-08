@@ -90,3 +90,12 @@ input {
     color: green;
     display: none;
 }
+
+.map{
+    margin: 20px;
+    padding: 10px;
+    border: 5px;
+    border-color: red;
+    background-color: gray;
+    padding-right: 20px;
+}
